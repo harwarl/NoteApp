@@ -4,7 +4,22 @@
     <%- include('./includes/nav.ejs') %>
     <main>
         <H1>List of Notes, will include edit and delete buttons</H1>
-        
+        <% if(notes.length <= 0){%>
+            <h2>No Notes Available. Add Notes</h2>
+        <%}else{%>
+            <div class="grid">
+                <%for(let note of notes){%>
+                    <h1><%= note.title%></h1>
+                    <p><%= note.note%></p>
+                    <a href="/my-notes/<%=note.id%>">View</a>
+                    <a href="/edit-note/<%=note.id%>?edit=true">Edit</a>
+                    <form action="/delete-note" method="post">
+                        <input type="hidden" value="<%=note.id%>" name="noteId">
+                        <button>Delete</button>
+                    </form>
+                <%}%>
+            </div>
+        <%}%>
         <a href="/new-note">New Note</a>
     </main>
 <%- include('./includes/footer.ejs') %>

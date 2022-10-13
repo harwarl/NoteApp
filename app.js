@@ -33,7 +33,7 @@ Note.belongsTo(User, { constraints: true, onDelete: "CASCADE" });
 
 //syncing and checking for users available
 sequelize
-    .sync({force: true})
+    .sync()
     .then(result=>{
         return User.findByPk(1)
     })

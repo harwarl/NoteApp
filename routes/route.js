@@ -4,6 +4,14 @@ const router = express.Router();
 
 const noteController = require('../controller/note');
 
+router.post('/delete-note', noteController.postDeleteNote);
+
+router.get('/edit-note/:noteId', noteController.getEditNote);
+
+router.post('/edit-note', noteController.postEditNote);
+
+router.get('/my-notes/:noteId', noteController.getNote);
+
 router.post("/add-note", noteController.postAddNote);
 
 router.get('/new-note', noteController.getNewNote);
