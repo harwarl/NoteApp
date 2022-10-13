@@ -3,7 +3,18 @@
 <body>
     <%- include('./includes/nav.ejs') %>
     <main>
-        <H1>Home Page</H1>
+        <H1>My Notes...</H1>
+        <% if(notes.length <= 0){%>
+            <h2>Add Notes Now</h2>
+        <%}else{%>
+            <div class="grid">
+                <%for(let note of notes){%>
+                    <h1><%= note.title%></h1>
+                    <p><%= note.note%></p>
+                    <a href="/my-notes/<%=note.id%>">View</a>
+                <%}%>
+            </div>
+        <%}%>
         <a href="/new-note">New Note</a>
     </main>
 <%- include('./includes/footer.ejs') %>

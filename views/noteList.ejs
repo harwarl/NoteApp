@@ -3,9 +3,9 @@
 <body>
     <%- include('./includes/nav.ejs') %>
     <main>
-        <H1>List of Notes, will include edit and delete buttons</H1>
+        <H1>My Notes...</H1>
         <% if(notes.length <= 0){%>
-            <h2>No Notes Available. Add Notes</h2>
+            <h2>Add Notes Now</h2>
         <%}else{%>
             <div class="grid">
                 <%for(let note of notes){%>

@@ -1,9 +1,14 @@
 const Note = require('../models/note');
 
 exports.getHome = (req, res, next) =>{
-    res.render('home', {
-        pageTitle: "Home-Note"
+    Note.findAll()
+    .then(notes=>{
+        res.render('home', {
+            pageTitle: "Home",
+            notes: notes
+        })
     })
+    .catch(err=>console.log(err))
 }
 
 exports.getNotes = (req, res, next) =>{
